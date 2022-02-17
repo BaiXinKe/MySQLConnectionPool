@@ -14,13 +14,10 @@ find_library(mysqlcppconn libmysqlcppconn8.a)
 
 find_package(Threads REQUIRED)
 
-find_package(ZeroMQ REQUIRED)
-include_directories(${ZeroMQ_INCLUDE_DIRS})
-
 
 add_executable(zero main.cpp Connector.cpp mysqlConnectionPool.cpp)
 
-target_link_libraries(zero ${ZeroMQ_Librar} ${Threads_Librar} mysqlclient mysqlcppconn )
+target_link_libraries(zero  ${Threads_Librar} mysqlclient mysqlcppconn )
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
